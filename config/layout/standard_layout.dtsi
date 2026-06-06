@@ -64,7 +64,7 @@
   continue-list = <UNDERSCORE MINUS BSPC>;
 };
 
-    // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+  // // // // // // // // // // // // // // // // // // // // // // // // // // // //
   // About layer-keys layout                                                       //
   // -----------------------                                                       //
   // Due to the different sizes of keyboards I want to support in this             //
@@ -89,7 +89,8 @@
   //                                                                               //
   //     P_<OVERAL_POSITION>_<LAYER_ABBREVIATION>[_<ORDER_INDICATION>]             //
   //                                                                               //
-  // The `OVERAL_POSITION` follows the syntax for the key position used on the     //                                                        //
+  // The `OVERAL_POSITION` follows the syntax for the key position used on the     //
+  //                                                                               //
   // `keypos_def` files, but also allows the use of the `S` side, that represents  //
   // a symetric position on the left and right sides; the `LAYER_ABBREVIATION`     //
   // uses the same names I use on the layer number definition; finally, the        //
@@ -99,7 +100,7 @@
   // position, but for a key with just two possible positions on the same row, is  //
   // common to use `O` for "outter", and `I` for inner, indicating that the key is //
   // located closer to the outter side of a keyboard half, or its inner side.      //
-// // // // // // // // // // // // // // // // // // // // // // // // // // // //
+  // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 // Definition of macros representing all alternatives positions for the
 // activation of the "Buttons" layer. Notice that COLEMAK and QWERTY share the
@@ -431,7 +432,7 @@
     // ├───────┬───────┬───────┬───────┬───────┬───────┤                      ├───────┬───────┬───────┬───────┬───────┬───────┤
     // │ [ ┊ ⌘`│   !   │   @   │   #   │   $   │   %   │                      │   ^   │   &   │   *   │   (   │   )   │   ]   │
     // ├───────╆━━━━━━━╈━━━━━━━╈━━━━━━━╈━━━━━━━╈━━━━━━━┪ ┌───────╮  ╭───────┐ ┢━━━━━━━╈━━━━━━━╈━━━━━━━╈━━━━━━━╈━━━━━━━╅───────┤
-    // │   󰌒   ┃   Q   ┃   W   ┃   F   ┃   P   ┃   B   ┃ │  HYP  │  │  HyP  │ ┃   J   ┃   L   ┃   U   ┃   Y   ┃   ;   ┃   _   │
+    // │   󰌒   ┃   Q   ┃   W   ┃   F   ┃   P   ┃   B   ┃ │  HYP  │  │  HYP  │ ┃   J   ┃   L   ┃   U   ┃   Y   ┃   ;   ┃   _   │
     // ├───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫ ├───────┤  ├───────┤ ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╉───────┤
     // │   `   ┃ A ┊ 󰘴 ┃ R ┊ 󰘵 ┃ S ┊ 󰘳 ┃ T ┊ 󰘶 ┃   G   ┃ │  MEH  │  │  MeH  │ ┃   M   ┃ N ┊ 󰘶 ┃ E ┊ 󰘳 ┃ I ┊ 󰘵 ┃ O ┊ 󰘴 ┃   '   │
     // ├───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫ ├───────┤  ├───────┤ ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╉───────┤
@@ -446,7 +447,7 @@
         &lbktgrave, &kp_rN1,   &kp_rN2,   &kp_rN3,   &kp_rN4,   &kp_rN5,                               &kp_rN6,       &kp_rN7,   &kp_rN8,   &kp_rN9,   &kp_rN0,   &kp RBKT,
         &kp TAB,    &kp Q,     &kp W,     &kp F,     &kp P,     &kp B,         &kp LHYP,    &kp RHYP,  &kp J,         &kp L,     &kp U,     &kp Y,     &kp SEMI,  &kp MINUS,
         &kp GRAVE,  LHM4(A),   LHM3(R),   LHM2(S),   LHM1(T),   &kp G,         &kp LMEH,    &kp RMEH,  &kp M,         RHM1(N),   RHM2(E),   RHM3(I),   RHM4(O),   &kp SQT,
-        &globebslh, P_LB4_QWT, P_LB3_QWT, &kp C,     &kp D,     &kp V,         &kp HOME,    &kp PG_UP, &kp K,         &kp H,     &kp COMMA, P_RB3_QWT, P_RB4_QWT, &hmr GLOBE EQUAL,
+        &globebslh, P_LB4_QWT, P_LB3_QWT, &kp C,     &kp D,     AS(V),         &kp HOME,    &kp PG_UP, &kp K,         &kp H,     &kp COMMA, P_RB3_QWT, P_RB4_QWT, &hmr GLOBE EQUAL,
                     &motg_sys, P_SF4_QWT, P_LF3_QWT, &bspcnav,  &lt L_SYM ESC, &kp END,     &kp PG_DN, &lt L_MED RET, &hlr L_NUM SPACE,     P_RF3_QWT, P_SF4_QWT, &motg_sys
       )>;
       sensor-bindings = <&mouscrl SCRLDN SCRLUP &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -569,7 +570,7 @@
     // │      ┃       ┃       ┃       ┃       ┃       ┃ │   ↖   │  │   ⇞   │ ┃       ┃  ← 󱕒  ┃  ↓ 󱕒  ┃  󱕒 ↑  ┃  󱕒 →  ┃       │
     // ╰───────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛ ├───────┤  ├───────┤ ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┹───────╯
     //         ┌───────┬───────┬───────┬───────┬───────┐ │   ↘   │  │   ⇟   │ ┌───────┬───────┬───────┬───────┬───────┐
-    //         │       │       │ -=〿=- │       │       │ └───────╯  ╰───────┘ │  R 󰍽  │  L 󰍽  │  M 󰍽  │       │   󰍁   │
+    //         │       │       │ -=〿=- │       │       │ └───────╯  ╰───────┘ │  R 󰍽  │  L 󰍽  │  M 󰍽  │  M 󰍽  │   󰍁   │
     //         ╰───────┴───────┴───────┴───────┴───────┘                      └───────┴───────┴───────┴───────┴───────╯
     MOUSE {
       display-name = "Mouse";
@@ -578,7 +579,7 @@
         &none,     &mkp MB4,  &mkp MB3,  &mkp MB2,  &mkp MB1,  &mkp MB5, &kp LHYP,    &kp RHYP,  &none,     &kp MAC_CUT,   &kp MAC_COPY,  &kp MAC_PASTE, &kp MAC_UNDO,   &none,
         &none,     &kp LHRM4, &kp LHRM3, &kp LHRM2, &kp LHRM1, &none,    &kp LMEH,    &kp RMEH,  &none,     MKP_MOVE_LEFT, MKP_MOVE_DOWN, MKP_MOVE_UP,   MKP_MOVE_RIGHT, &none,
         &kp GLOBE, P_LB4_MOU, P_LB3_MOU, &none,     &none,     &none,    &kp HOME,    &kp PG_UP, &none,     MKP_SCRL_LEFT, MKP_SCRL_DOWN, MKP_SCRL_UP,   MKP_SCRL_RIGHT, &none,
-                   &none,     &none,     P_LF3_MOU, &none,     &none,    &kp END,     &kp PG_DN, &mkp MB2,  &mkp MB1,      &mkp MB3,      &mkp MB4,     &molock
+                   &none,     &none,     P_LF3_MOU, &none,     &none,    &kp END,     &kp PG_DN, &mkp MB2,  &mkp MB1,      &mkp MB3,      &mkp MB3,     &molock
       )>;
       sensor-bindings = <&mouscrl SCRLDN SCRLUP &inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
