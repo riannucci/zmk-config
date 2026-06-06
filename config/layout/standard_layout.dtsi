@@ -34,26 +34,24 @@
 //       adjustment ones, this way, if we switch to a different layout, you can
 //       still toggle all the other layers in the layout.
 
-// Current main layout: QWERTY
-#define L_QWT 0
-// Alternative layout I'm planning to explore: COLEMAK
-#define L_CMK 1
+// Main layout: COLEMAK 
+#define L_CMK 0
 // Navigation layer
-#define L_NAV 2
+#define L_NAV 1
 // Numbers layer
-#define L_NUM 3
+#define L_NUM 2
 // Symbols layer
-#define L_SYM 4
+#define L_SYM 3
 // Media layer
-#define L_MED 5
+#define L_MED 4
 // Buttons layer
-#define L_MOU 6
-// Keyboard system layer
-#define L_FUN 7
+#define L_MOU 5
+// Function layer
+#define L_FUN 6
 // Buttons layer
-#define L_BUT 8
+#define L_BUT 7
 // Keyboard system layer
-#define L_SYS 9
+#define L_SYS 8
 
 // Behavior configuration
 // -----------------------------------------------------------------------------
@@ -386,7 +384,7 @@
         combo_caps_word {
             timeout-ms = <75>;
             key-positions = COMBO_KEY_CAPS_WORD;
-            layers = <L_QWT L_CMK>;
+            layers = <L_CMK>;
             bindings = <&caps_word>;
         };
     };
@@ -400,32 +398,6 @@
 / {
   keymap {
     compatible = "zmk,keymap";
-
-    // Layer: MAIN
-    // ╭────────────────── Left-side ──────────────────╮                      ╭───────────────── Right-side ──────────────────╮
-    // ├───────┬───────┬───────┬───────┬───────┬───────┤                      ├───────┬───────┬───────┬───────┬───────┬───────┤
-    // │ [ ┊ ⌘`│   !   │   @   │   #   │   $   │   %   │                      │   ^   │   &   │   *   │   (   │   )   │   ]   │
-    // ├───────╆━━━━━━━╈━━━━━━━╈━━━━━━━╈━━━━━━━╈━━━━━━━┪ ┌───────╮  ╭───────┐ ┢━━━━━━━╈━━━━━━━╈━━━━━━━╈━━━━━━━╈━━━━━━━╅───────┤
-    // │   󰌒   ┃   Q   ┃   W   ┃   E   ┃   R   ┃   T   ┃ │  HYP  │  │  HYP  │ ┃   Y   ┃   U   ┃   I   ┃   O   ┃   P   ┃   _   │
-    // ├───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫ ├───────┤  ├───────┤ ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╉───────┤
-    // │   `   ┃ A ┊ 󰘴 ┃ S ┊ 󰘵 ┃ D ┊ 󰘳 ┃ F ┊ 󰘶 ┃   G   ┃ │  MEH  │  │  MEH  │ ┃   H   ┃ J ┊ 󰘶 ┃ K ┊ 󰘳 ┃ L ┊ 󰘵 ┃ ; ┊ 󰘴 ┃   '   │
-    // ├───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫ ├───────┤  ├───────┤ ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╉───────┤
-    // │ \ ┊  ┃   Z   ┃   X   ┃   C   ┃   V   ┃   B   ┃ │   ↖   │  │   ⇞   │ ┃   N   ┃   M   ┃   ,   ┃   .   ┃   /   ┃ = ┊  │
-    // ╰───────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛ ├───────┤  ├───────┤ ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┹───────╯
-    //         ┌───────┬───────┬───────┬───────┬───────┐ │   ↘   │  │   ⇟   │ ┌───────┬───────┬───────┬───────┬───────┐
-    //         │   󰎺   │   󰎷   │   󰎯   │ 󰭜 ┊ 󰎥 │ ⎋ ┊ 󰎫 │ └───────╯  ╰───────┘ │ ⏎ ┊ 󰎲 │ 󱁐 ┊ 󰎨 │   󰎴   │   󰎷   │   󰎺   │
-    //         ╰───────┴───────┴───────┴───────┴───────┘                      └───────┴───────┴───────┴───────┴───────╯
-    MAIN {
-      display-name = "QWERTY";
-      bindings = <LAYER_ADAPTER(
-        &lbktgrave, &kp_rN1,   &kp_rN2,   &kp_rN3,   &kp_rN4,  &kp_rN5,                               &kp_rN6,       &kp_rN7,   &kp_rN8,   &kp_rN9,   &kp_rN0,    &kp RBKT,
-        &kp TAB,    &kp Q,     &kp W,     &kp E,     &kp R,    &kp T,         &kp LHYP,    &kp RHYP,  &kp Y,         &kp U,     &kp I,     &kp O,     &kp P,      &kp MINUS,
-        &kp GRAVE,  LHM4(A),   LHM3(S),   LHM2(D),   LHM1(F),  &kp G,         &kp LMEH,    &kp RMEH,  &kp H,         RHM1(J),   RHM2(K),   RHM3(L),   RHM4(SEMI), &kp SQT,
-        &globebslh, P_LB4_QWT, P_LB3_QWT, &kp C,     AS(V),    &kp B,         &kp HOME,    &kp PG_UP, &kp N,         &kp M,     &kp COMMA, P_RB3_QWT, P_RB4_QWT,  &hmr GLOBE EQUAL,
-                    &motg_sys, P_SF4_QWT, P_LF3_QWT, &bspcnav, &lt L_SYM ESC, &kp END,     &kp PG_DN, &lt L_MED RET, &hlr L_NUM SPACE,     P_RF3_QWT, P_SF4_QWT,  &motg_sys
-      )>;
-      sensor-bindings = <&mouscrl SCRLDN SCRLUP &inc_dec_kp C_VOL_UP C_VOL_DN>;
-    };
 
     // Layer: COLEMAK
     // ╭────────────────── Left-side ──────────────────╮                      ╭───────────────── Right-side ──────────────────╮
@@ -648,7 +620,7 @@
     // │       ┃  󰸌 󰨚  ┃  󰸌 󰜉  ┃       ┃       ┃      ┃ │   ↖   │  │   ⇞   │ ┃  󰂱 1  ┃  󰂱 2  ┃  󰂱 3  ┃  󰂱 4  ┃  󰂱 5  ┃   󰂲   │
     // ╰───────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛ ├───────┤  ├───────┤ ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┹───────╯
     //         ┌───────┬───────┬───────┬───────┬───────┐ │   ↘   │  │   ⇟   │ ┌───────┬───────┬───────┬───────┬───────┐
-    //         │ -=󰍁=- │       │       │       │   󰌓   │ └───────╯  ╰───────┘ │       │       │       │       │ -=󰍁=- │
+    //         │ -=󰍁=- │       │       │       │       │ └───────╯  ╰───────┘ │       │       │       │       │ -=󰍁=- │
     //         ╰───────┴───────┴───────┴───────┴───────┘                      └───────┴───────┴───────┴───────┴───────╯
     SYSTEM {
       display-name = "System";
@@ -657,7 +629,7 @@
         &bootloader, &rgb_ug RGB_HUI, &rgb_ug RGB_SAI, &rgb_ug RGB_BRI, &bl_inc, &ext_power EP_TOG, &kp LHYP,    &kp RHYP,  &none,        &none,        &none,        &none,        &none,         &bootloader,
         &sys_reset,  &rgb_ug RGB_HUD, &rgb_ug RGB_SAD, &rgb_ug RGB_BRD, &bl_dec, &out OUT_TOG,      &kp LMEH,    &kp RMEH,  &none,        &none,        &none,        &none,        &none,         &sys_reset,
         &none,       &rgb_ug RGB_TOG, &ug_reset,       &none,           &none,   &kp C_PWR,         &kp HOME,    &kp PG_UP, &bt BT_SEL 0, &bt BT_SEL 1, &bt BT_SEL 2, &bt BT_SEL 3, &bt BT_SEL 4,  &bt BT_CLR,
-                     LOCK_SYS_LAYER,  &none,           &none,           &none,   &tog L_CMK,        &kp END,     &kp PG_DN, &none,        &none,        &none,        &none,        LOCK_SYS_LAYER
+                     LOCK_SYS_LAYER,  &none,           &none,           &none,   &none,             &kp END,     &kp PG_DN, &none,        &none,        &none,        &none,        LOCK_SYS_LAYER
       )>;
       sensor-bindings = <&mouscrl SCRLDN SCRLUP &inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
