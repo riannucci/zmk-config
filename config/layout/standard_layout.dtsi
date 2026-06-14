@@ -22,7 +22,6 @@
 #include "specialkeys.dtsi"
 #include "homerowmods.dtsi"
 #include "autoshift.dtsi"
-#include "keymap_drawer.dtsi"
 
 // Layers definitions
 // -----------------------------------------------------------------------------
@@ -108,7 +107,7 @@
 #define P_RB4_QWT  &hlr L_BUT FSLH
 #define P_SF4_QWT  &none
 #define P_SF4_BUT  &none
-#define P_SB4_BUT  UNDO_TOG_BUT_LAYER
+#define P_SB4_BUT  &kp MAC_UNDO
 #else
 #define P_SF4_QWT  &motg_but
 #define P_SF4_BUT  &tog L_BUT
@@ -444,8 +443,8 @@
       bindings = <LAYER_ADAPTER(
         &appPwinN,  &kp LG(N1),  &kp LG(N2),  &kp LG(N3),  &kp LG(N4),  &kp LG(N5),                         &none, &kp BTAB,     &kp MAC_FDPRV, &kp MAC_FDNXT, &kp TAB,      &none,
         &appswtnxt, &kp LG(Q),   &kp LG(W),   &kp LG(E),   &kp LG(R),   &kp LG(T),  &kp LHYP,    &kp RHYP,  &none, &kp HOME,     &kp PG_DN,     &kp PG_UP,     &kp END,      &none,
-        &appPwinN,  LMT4(LG(A)), LMT3(LG(S)), LMT2(LG(D)), LMT1(LG(F)), NAV_LG_G,   &kp LMEH,    &kp RMEH,  &none, &kp LEFT,     &kp DOWN,      &kp UP,        &kp RIGHT,    &none,
-        &winPglobe, NAV_LG_Z,    NAV_LG_X,    NAV_LG_C,    NAV_LG_V,    &kp LG(B),  &kp HOME,    &kp PG_UP, &none, &kp MAC_WRDP, &kp MAC_STTL,  &kp MAC_ENDL,  &kp MAC_WRDN, &none,
+        &appPwinN,  LMT4(LG(A)), LMT3(LG(S)), LMT2(LG(D)), LMT1(LG(F)), navcmdg,   &kp LMEH,    &kp RMEH,  &none, &kp LEFT,     &kp DOWN,      &kp UP,        &kp RIGHT,    &none,
+        &winPglobe, navcmdz,    navcmdx,    navcmdc,    navcmdv,    &kp LG(B),  &kp HOME,    &kp PG_UP, &none, &kp MAC_WRDP, &kp MAC_STTL,  &kp MAC_ENDL,  &kp MAC_WRDN, &none,
                     &none,       &none,       &none,       &tog L_NAV,  &none,      &kp END,     &kp PG_DN, &none, &none,        &none,         &none,         &none
       )>;
       sensor-bindings = <&mouscrl SCRLDN SCRLUP &inc_dec_kp C_VOL_UP C_VOL_DN>;
