@@ -359,6 +359,36 @@
       mods = <(MOD_LGUI|MOD_RGUI)>;
       keep-mods = <(MOD_LGUI|MOD_RGUI)>;
     };
+
+    navcmdz: command_z_nav_layer {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&kp LG(Z)>;
+    };
+
+    navcmdx: command_x_nav_layer {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&kp LG(X)>;
+    };
+
+    navcmdc: command_c_nav_layer {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&kp LG(C)>;
+    };
+
+    navcmdv: command_v_nav_layer {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&kp LG(V)>;
+    };
+
+    navcmdg: command_g_nav_layer {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&kp LG(G)>;
+    };
   };
 };
 
