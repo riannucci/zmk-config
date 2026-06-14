@@ -33,6 +33,5 @@ manifest:
       remote: dhruvinsh
       revision: main
       clone-depth: 1
-      path: .west/repos/zmk-tri-state
   self:
     path: config
