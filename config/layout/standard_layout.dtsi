@@ -508,11 +508,11 @@
     // ├───────┬───────┬───────┬───────┬───────┬───────┤                      ├───────┬───────┬───────┬───────┬───────┬───────┤
     // │       │       │       │       │       │       │                      │       │       │       │       │       │       │
     // ├───────╆━━━━━━━╈━━━━━━━╈━━━━━━━╈━━━━━━━╈━━━━━━━┪ ┌───────╮  ╭───────┐ ┢━━━━━━━╈━━━━━━━╈━━━━━━━╈━━━━━━━╈━━━━━━━╅───────┤
-    // │   󰝝   ┃   󰖨   ┃       ┃       ┃       ┃  󰝚 󰝝  ┃ │  HYP  │  │  HYP  │ ┃       ┃       ┃       ┃       ┃       ┃       │
+    // │   󰝝   ┃   󰖨   ┃       ┃       ┃       ┃       ┃ │  HYP  │  │  HYP  │ ┃       ┃       ┃       ┃       ┃       ┃       │
     // ├───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫ ├───────┤  ├───────┤ ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╉───────┤
-    // │   󰝞   ┃      ┃   󰒮   ┃   󰐎   ┃   󰒭   ┃  󰝚 󰝞  ┃ │  MEH  │  │  MEH  │ ┃       ┃   󰘶   ┃   󰘳   ┃   󰘵   ┃   󰘴   ┃       │
+    // │   󰝞   ┃      ┃   󰒮   ┃   󰐎   ┃   󰒭   ┃       ┃ │  MEH  │  │  MEH  │ ┃       ┃   󰘶   ┃   󰘳   ┃   󰘵   ┃   󰘴   ┃       │
     // ├───────╊━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫ ├───────┤  ├───────┤ ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╉───────┤
-    // │      ┃       ┃  ← 󰝚  ┃  󰝚 󰑐  ┃  󰝚 →? ┃  󰝚 󰍪  ┃ │   ↖   │  │   ⇞   │ ┃       ┃       ┃       ┃       ┃       ┃      │
+    // │      ┃       ┃       ┃   󰓛   ┃       ┃       ┃ │   ↖   │  │   ⇞   │ ┃       ┃       ┃       ┃       ┃       ┃      │
     // ╰───────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛ ├───────┤  ├───────┤ ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┹───────╯
     //         ┌───────┬───────┬───────┬───────┬───────┐ │   ↘   │  │   ⇟   │ ┌───────┬───────┬───────┬───────┬───────┐
     //         │   󰍁   │       │       │       │   󰓛   │ └───────╯  ╰───────┘ │ -=〿=- │       │       │       │       │
@@ -521,11 +521,11 @@
       // &rgb_ug RGB_TOG
       display-name = "Media";
       bindings = <LAYER_ADAPTER(
-        &none,        &none,        &none,      &none,    &none,      &none,                              &none,      &none,     &none,     &none,     &none,     &none,
-        &kp C_VOL_UP, &kp C_BRI_UP, &none,      &none,    &none,      &none,      &kp LHYP,    &kp RHYP,  &none,      &none,     &none,     &none,     &none,     &none,
-        &kp C_VOL_DN, &kp C_BRI_DN, &kp C_PREV, &kp C_PP, &kp C_NEXT, &none,      &kp LMEH,    &kp RMEH,  &none,      &kp RHRM1, &kp RHRM2, &kp RHRM3, &kp RHRM4, &none,
-        &kp C_MUTE,   &none,        &none,      &none,    &none,      &none,      &kp HOME,    &kp PG_UP, &none,      &none,     &none,     &none,     &none,     &kp GLOBE,
-                      &molock,      &none,      &none,    &none,      &kp C_STOP, &kp END,     &kp PG_DN, &tog L_MED, &none,     &none,     &none,     &none
+        &none,        &none,        &none,      &none,      &none,      &none,                              &none,      &none,     &none,     &none,     &none,     &none,
+        &kp C_VOL_UP, &kp C_BRI_UP, &none,      &none,      &none,      &none,      &kp LHYP,    &kp RHYP,  &none,      &none,     &none,     &none,     &none,     &none,
+        &kp C_VOL_DN, &kp C_BRI_DN, &kp C_PREV, &kp C_PP,   &kp C_NEXT, &none,      &kp LMEH,    &kp RMEH,  &none,      &kp RHRM1, &kp RHRM2, &kp RHRM3, &kp RHRM4, &none,
+        &kp C_MUTE,   &none,        &none,      &kp C_STOP, &none,      &none,      &kp HOME,    &kp PG_UP, &none,      &none,     &none,     &none,     &none,     &kp GLOBE,
+                      &molock,      &none,      &none,      &none,      &kp C_STOP, &kp END,     &kp PG_DN, &tog L_MED, &none,     &none,     &none,     &none
       )>;
       sensor-bindings = <&mouscrl SCRLDN SCRLUP &inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
