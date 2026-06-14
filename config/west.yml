@@ -1,37 +1,17 @@
 manifest:
+  defaults:
+    revision: v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     - name: dhruvinsh
       url-base: https://github.com/dhruvinsh
   projects:
-    - name: zephyr
+    - name: zmk
       remote: zmkfirmware
-      revision: v4.1.0+zmk-fixes
-      clone-depth: 1
-      import:
-        name-blocklist:
-          - ci-tools
-          - hal_altera
-          - hal_cypress
-          - hal_infineon
-          - hal_microchip
-          - hal_nxp
-          - hal_openisa
-          - hal_silabs
-          - hal_xtensa
-          - hal_st
-          - hal_ti
-          - loramac-node
-          - mcuboot
-          - mcumgr
-          - net-tools
-          - openthread
-          - edtt
-          - trusted-firmware-m
+      import: app/west.yml
     - name: zmk-tri-state
       remote: dhruvinsh
       revision: main
-      clone-depth: 1
   self:
     path: config
