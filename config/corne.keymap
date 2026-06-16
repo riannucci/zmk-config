@@ -25,9 +25,10 @@
 
 / {
   /*
-   * Thumb hold-taps use a longer 200 ms tapping term than the 150 ms global
-   * &mt/&lt (which still apply to the edge-column Tab/NUM and Esc/LCtrl keys).
-   * Flavor kept tap-preferred for consistency with the rest of the board.
+   * Two inner thumb hold-taps (LGUI/RET, NAV/SPACE) use 250 ms via mt_thumb/lt_thumb.
+   * The 150 ms global &mt/&lt cover the edge-column Tab/NUM and Esc/LCtrl keys
+   * as well as the two middle thumbs (LALT/DEL and SYM/BSPC).
+   * Flavor kept tap-preferred throughout.
    */
   behaviors {
     mt_thumb: mod_tap_thumb {
@@ -65,7 +66,7 @@
         &lt NUM TAB    &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y          &kp U      &kp I      &kp O    &kp P     &kp BSLH
         &mt LCTRL ESC  &kp A  &kp S  &kp D  &kp F  &kp G        &kp H          &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
         &kp LSHFT      &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N          &kp M      &kp COMMA  &kp DOT  &kp FSLH  &caps_word
-                              &mo SYS  &mt_thumb LALT DEL  &mt_thumb LGUI RET &lt_thumb NAV SPACE  &lt_thumb SYM BSPC  &mo MEDIA
+                              &mo SYS  &mt LALT DEL        &mt_thumb LGUI RET &lt_thumb NAV SPACE  &lt SYM BSPC        &mo MEDIA
       >;
     };
 
@@ -79,7 +80,7 @@
       // │ LCTL │  @   │      │ ▽ D  │  !   │ ▽ G  │   │  ←   │  ↓   │  ↑   │  →   │ ▽ ;  │ ▽ '  │
       // ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
       // │ LSFT │  ~   │ ▽ X  │ ▽ C  │  ^   │  (   │   │  )   │  $   │ ▽ ,  │ ▽ .  │ ▽ /  │      │
-      // ╰──────┴──────┴─────┬┴─────┬┴─────┬┴─────┬╯   ╰┬─────┴┬─────┴┬─────┴──────┴──────┴──────╯
+      // ╰──────┴──────┴─────┬┴─────┬┴─────┬┴─────┬╯   ╰┬─────┴┬─────┴┬─────┴┬─────┴──────┴──────╯
       //                     │      │ LALT │ LGUI │     │      │ #### │      │
       //                     ╰──────┴──────┴──────╯     ╰──────┴──────┴──────╯
       bindings = <
@@ -99,15 +100,15 @@
       // │ LCTL │      │      │      │ TAB  │      │   │  +   │  4   │  5   │  6   │  *   │      │
       // ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
       // │ LSFT │      │      │      │      │      │   │  ,   │  1   │  2   │  3   │  /   │  .   │
-      // ╰──────┴──────┴─────┬┴─────┬┴─────┬┴─────┬╯   ╰┬─────┴┬─────┴┬─────┴──────┴──────┴──────╯
+      // ╰──────┴──────┴─────┬┴─────┬┴─────┬┴─────┬╯   ╰┬─────┴┬─────┴┬─────┴┬─────┴──────┴──────╯
       //                     │      │ SPC  │ RET/ │     │  0   │ BSPC │      │
       //                     │      │      │ LGUI │     │      │      │      │
       //                     ╰──────┴──────┴──────╯     ╰──────┴──────┴──────╯
       bindings = <
-        &trans     &kp N1  &kp N2  &kp N3  &kp N4   &kp N5       &kp MINUS  &kp N7  &kp N8  &kp N9  &kp EQUAL  &none
-        &kp LCTRL  &none   &none   &none   &kp TAB  &none        &kp PLUS   &kp N4  &kp N5  &kp N6  &kp ASTRK  &none
-        &kp LSHFT  &none   &none   &none   &none    &none        &kp COMMA  &kp N1  &kp N2  &kp N3  &kp FSLH   &kp DOT
-                           &none   &kp SPACE  &mt LGUI RET       &kp N0     &kp BSPC  &none
+        &trans     &kp N1  &kp N2  &kp N3     &kp N4   &kp N5       &kp MINUS  &kp N7    &kp N8  &kp N9  &kp EQUAL  &none
+        &kp LCTRL  &none   &none   &none      &kp TAB  &none        &kp PLUS   &kp N4    &kp N5  &kp N6  &kp ASTRK  &none
+        &kp LSHFT  &none   &none   &none      &none    &none        &kp COMMA  &kp N1    &kp N2  &kp N3  &kp FSLH   &kp DOT
+                           &none   &kp SPACE  &mt LGUI RET          &kp N0     &kp BSPC  &none
       >;
     };
 
@@ -121,7 +122,7 @@
       // │      │      │      │      │      │      │   │ PGDN │ WS4  │ WS5  │ WS6  │ END  │      │
       // ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
       // │ LSFT │      │      │      │      │      │   │      │ WS1  │ WS2  │ WS3  │      │ RCMD │
-      // ╰──────┴──────┴─────┬┴─────┬┴─────┬┴─────┬╯   ╰┬─────┴┬─────┴┬─────┴──────┴──────┴──────╯
+      // ╰──────┴──────┴─────┬┴─────┬┴─────┬┴─────┬╯   ╰┬─────┴┬─────┴┬─────┴┬─────┴──────┴──────╯
       //                     │      │      │ Term │     │ #### │      │      │
       //                     ╰──────┴──────┴──────╯     ╰──────┴──────┴──────╯
       bindings = <
@@ -142,7 +143,7 @@
       // │      │Files │Slack │      │Firefx│Linear│   │      │ ⇒WS4 │ ⇒WS5 │ ⇒WS6 │      │      │
       // ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
       // │      │      │ScShot│Chrome│      │      │   │      │ ⇒WS1 │ ⇒WS2 │ ⇒WS3 │      │ #### │
-      // ╰──────┴──────┴─────┬┴─────┬┴─────┬┴─────┬╯   ╰┬─────┴┬─────┴┬─────┴──────┴──────┴──────╯
+      // ╰──────┴──────┴─────┬┴─────┬┴─────┬┴─────┬╯   ╰┬─────┴┬─────┴┬─────┴┬─────┴──────┴──────╯
       //                     │      │      │ Term │     │      │      │      │
       //                     ╰──────┴──────┴──────╯     ╰──────┴──────┴──────╯
       bindings = <
@@ -155,41 +156,41 @@
 
     media_layer {
       display-name = "Media";
-      // Media controls + Bluetooth profile management.
+      // Media controls management. Hold right outer thumb to activate.
       // ╭──────┬──────┬──────┬──────┬──────┬──────╮   ╭──────┬──────┬──────┬──────┬──────┬──────╮
-      // │      │ BRID │ BRIU │ PREV │ PLAY │ NEXT │   │ MUTE │ VOLD │ VOLU │      │      │BTCLR │
+      // │      │ BRID │ BRIU │ PREV │ PLAY │ NEXT │   │ MUTE │ VOLD │ VOLU │      │      │      │
       // ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
       // │      │      │      │      │      │      │   │      │      │      │      │      │      │
       // ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-      // │      │      │      │      │      │      │   │      │ BT1  │ BT2  │      │  BLE │  USB │
-      // ╰──────┴──────┴─────┬┴─────┬┴─────┬┴─────┬╯   ╰┬─────┴┬─────┴┬─────┴──────┴──────┴──────╯
+      // │      │      │      │      │      │      │   │      │      │      │      │      │      │
+      // ╰──────┴──────┴─────┬┴─────┬┴─────┬┴─────┬╯   ╰┬─────┴┬─────┴┬─────┴┬─────┴──────┴──────╯
       //                     │      │      │      │     │      │      │ #### │
       //                     ╰──────┴──────┴──────╯     ╰──────┴──────┴──────╯
       bindings = <
-        &none  &kp C_BRI_DEC  &kp C_BRI_INC  &kp C_PREV  &kp C_PP  &kp C_NEXT    &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &none         &none         &bt BT_CLR
-        &none  &none          &none          &none       &none     &none          &none       &none         &none         &none         &none         &none
-        &none  &none          &none          &none       &none     &none          &none       &bt BT_SEL 0  &bt BT_SEL 1  &none         &out OUT_BLE  &out OUT_USB
-                                             &none       &none     &none          &none       &none         &trans
+        &none  &kp C_BRI_DEC  &kp C_BRI_INC  &kp C_PREV  &kp C_PP  &kp C_NEXT    &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &none   &none  &none
+        &none  &none          &none          &none       &none     &none         &none       &none         &none         &none   &none  &none
+        &none  &none          &none          &none       &none     &none         &none       &none         &none         &none   &none  &none
+                                             &none       &none     &none         &none       &none         &trans
       >;
     };
 
     sys_layer {
       display-name = "Sys";
-      // System: dongle bootloader + reset.  Hold left outer thumb to activate.
+      // System: dongle connections management. Hold left outer thumb to activate.
       // ╭──────┬──────┬──────┬──────┬──────┬──────╮   ╭──────┬──────┬──────┬──────┬──────┬──────╮
-      // │      │      │      │      │      │      │   │      │      │      │      │      │ BOOT │
+      // │      │      │      │      │      │      │   │DGLOFF│ DGLD │ DGLU │      │      │      │
       // ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
       // │      │      │      │      │      │      │   │      │      │      │      │      │      │
       // ├──────┼──────┼──────┼──────┼──────┼──────┤   ├──────┼──────┼──────┼──────┼──────┼──────┤
-      // │      │      │      │      │      │      │   │      │      │      │      │      │RESET │
-      // ╰──────┴──────┴─────┬┴─────┬┴─────┬┴─────┬╯   ╰┬─────┴┬─────┴┬─────┴──────┴──────┴──────╯
-      //                     │ #### │      │      │     │      │      │      │
+      // │      │      │      │      │      │      │   │      │ BT1  │ BT2  │      │      │BTCLR │
+      // ╰──────┴──────┴─────┬┴─────┬┴─────┬┴─────┬╯   ╰┬─────┴┬─────┴┬─────┴┬─────┴──────┴──────╯
+      //                     │ #### │      │      │     │ USB  │      │ BLE  │
       //                     ╰──────┴──────┴──────╯     ╰──────┴──────┴──────╯
       bindings = <
-        &none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &bootloader
-        &none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
-        &none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &sys_reset
-                             &trans  &none  &none   &none  &none  &none
+        &none  &none  &none  &none   &none  &none    &kp F22       &kp F23       &kp F24       &none  &none  &none
+        &none  &none  &none  &none   &none  &none    &none         &none         &none         &none  &none  &none
+        &none  &none  &none  &none   &none  &none    &none         &bt BT_SEL 0  &bt BT_SEL 1  &none  &none  &bt BT_CLR
+                             &trans  &none  &none    &out OUT_USB  &none         &out OUT_BLE
       >;
     };
   };
