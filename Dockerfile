@@ -1,6 +1,19 @@
 FROM zmkfirmware/zmk-dev-arm:stable
 
-RUN mkdir -p /workspace \
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    libglib2.0-dev-bin=2.80.0-6ubuntu3.8 \
+    python3-venv=3.12.3-0ubuntu2.1 \
+  && rm -rf /var/lib/apt/lists/* \
+  # Adafruit serial-DFU packager, isolated in its own venv so its Python deps can't clash
+  # with the Zephyr/west build environment. Only the CLI entry point is exposed on PATH (via a symlink);
+  # the venv interpreter must NOT shadow the system python3 that `west build` uses,
+  # so we deliberately do not put the venv on PATH.
+  # Lives in /opt (outside the bind-mounted /workspace, /zmk-config, /firmware).
+  && python3 -m venv /opt/nrfutil-venv \
+  && /opt/nrfutil-venv/bin/pip install --no-cache-dir adafruit-nrfutil==0.5.3.post16 \
+  && ln -s /opt/nrfutil-venv/bin/adafruit-nrfutil /usr/local/bin/adafruit-nrfutil \
+  && mkdir -p /workspace \
   && chown -R ubuntu:ubuntu /workspace
 
 USER ubuntu

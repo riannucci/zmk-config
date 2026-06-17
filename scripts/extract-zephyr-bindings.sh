@@ -8,18 +8,18 @@
 #   .zmk-app/    — ZMK app dir (bindings, behaviors, shields, board metadata)
 #   .zephyr-sdk/ — Zephyr tree (SoC DTSIs, core bindings, include headers, boards)
 #
-# Usage: ./extract-zephyr-bindings.sh
+# Usage: ./scripts/extract-zephyr-bindings.sh
 # Run after: docker compose build
 set -euo pipefail
 
 SERVICE="make"
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ZMK_APP_SRC="/workspace/zmk/app"
-ZMK_APP_DEST="$SCRIPT_DIR/.zmk-app"
+ZMK_APP_DEST="$REPO_ROOT/.zmk-app"
 ZEPHYR_SRC="/workspace/zephyr"
-ZEPHYR_DEST="$SCRIPT_DIR/.zephyr-sdk"
+ZEPHYR_DEST="$REPO_ROOT/.zephyr-sdk"
 
-cd "$SCRIPT_DIR"
+cd "$REPO_ROOT"
 
 # Create a container (not started) from the compose service
 docker compose create "$SERVICE"
