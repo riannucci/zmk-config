@@ -76,6 +76,22 @@ takes precedence where they overlap.
    passes `-DZMK_EXTRA_MODULES=$CONFIG/modules/ecaps-word` to all 5 targets, and the CI
    workflows inject the same — keep them in sync.
 
+5. **Display-thread stack vs. roller animation.** The dongle screen runs on a **dedicated
+   display thread** (`ZMK_DISPLAY_WORK_QUEUE_DEDICATED`, forced in the fork's
+   `boards/shields/dongle_screen/Kconfig.defconfig`). Its stack size is
+   `CONFIG_ZMK_DISPLAY_DEDICATED_THREAD_STACK_SIZE` — **ZMK core default 3072**, the fork
+   raises it to **4096**; `config/corne_dongle.conf` does not override it. This is a
+   **memory** knob, not a timing knob: it does **not** set animation speed/fps. But the
+   **layer-roller scroll is the peak stack consumer** — every frame during the scroll runs
+   the roller's `mask_event_cb` (LVGL draw masks, `LV_USE_DRAW_MASK`) **plus 40 px Samsung
+   Sans anti-aliased glyph rasterization** on that thread's stack. Drop below 4096 and you
+   get a stack overflow / freeze that surfaces **precisely during the layer roll**. Do not
+   lower it. Tuning levers: roller feel = `anim_time` in the fork's
+   `src/widgets/layer_roller.c` (**fork-only** — needs a fork commit + `config/west.yml`
+   repoint, then reflash dongle); smoothness/fps = `CONFIG_LV_DISP_DEF_REFR_PERIOD`
+   (**locally overridable** in `config/corne_dongle.conf`, but it adds draw cycles on the
+   stack-hungry thread and costs RAM — already ~75%).
+
 ## Custom Zephyr module conventions (`config/modules/<name>/`)
 
 - **Place modules under `config/`** (not repo root): `config/` is already bind-mounted

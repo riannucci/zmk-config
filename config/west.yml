@@ -2,15 +2,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: janpfischer
-      url-base: https://github.com/janpfischer
+    - name: ethan605
+      url-base: https://github.com/ethan605
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: edf5c0814fd3ea202e43aad2d68fd32e882a518c   # v0.3.0
       import: app/west.yml       # Pulls in Zephyr and all ZMK dependencies
     - name: zmk-dongle-screen
-      remote: janpfischer
-      revision: b0f93cab8b66f0ab75586c37481f274d6c045e45   # main HEAD pinned (avoid moving-branch supply-chain risk)
+      remote: ethan605
+      revision: 26833cbca25b4cc76de4559149dc96a78bfd3b6b   # feat(corne-custom)
   self:
     path: config
