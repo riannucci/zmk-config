@@ -408,7 +408,7 @@
       bindings= <&kp LC(W) &kp K>;
     };
 
-    vnavdown: vim_window_up_nav_layer {
+    vnavdown: vim_window_down_nav_layer {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       bindings= <&kp LC(W) &kp J>;
