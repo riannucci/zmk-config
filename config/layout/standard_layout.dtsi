@@ -393,25 +393,25 @@
     vnavleft: vim_window_left_nav_layer {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-      bindings= <&kp LC<W>>, <&kp h>;
+      bindings= <&kp LC(W)>, <&kp h>;
     };
 
     vnavright: vim_window_right_nav_layer {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-      bindings= <&kp LC<W>>, <&kp l>;
+      bindings= <&kp LC(W)>, <&kp l>;
     };
 
     vnavup: vim_window_up_nav_layer {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-      bindings= <&kp LC<W>>, <&kp k>;
+      bindings= <&kp LC(W)>, <&kp k>;
     };
 
     vnavdown: vim_window_up_nav_layer {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-      bindings= <&kp LC<W>>, <&kp j>;
+      bindings= <&kp LC(W)>, <&kp j>;
     };
   };
 };
