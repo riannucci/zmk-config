@@ -181,6 +181,8 @@
     __NUM_REVERSE(N8, ASTERISK);
     __NUM_REVERSE(N9, LEFT_PARENTHESIS);
     __NUM_REVERSE(N0, RIGHT_PARENTHESIS);
+    __NUM_REVERSE(SEMI, COLON);
+    __NUM_REVERSE(MINUS, UNDERSCORE);
 
     // Underglow RESET, that, when double-tapped, zero-out all the underglow
     // values.

@@ -470,7 +470,7 @@
       display-name = "COLEMAK";
       bindings = <LAYER_ADAPTER(
         &lbktgrave, &kp_rN1,   &kp_rN2,   &kp_rN3,   &kp_rN4,   &kp_rN5,                               &kp_rN6,       &kp_rN7,   &kp_rN8,   &kp_rN9,   &kp_rN0,   &kp RBKT,
-        &kp TAB,    &kp Q,     &kp W,     &kp F,     &kp P,     &kp B,         &kp LHYP,    &kp RHYP,  &kp J,         &kp L,     &kp U,     &kp Y,     &kp SEMI,  &kp MINUS,
+        &kp TAB,    &kp Q,     &kp W,     &kp F,     &kp P,     &kp B,         &kp LHYP,    &kp RHYP,  &kp J,         &kp L,     &kp U,     &kp Y,     &kp_rCOLON,  &kp_rMINUS,
         &kp GRAVE,  LHM4(A),   LHM3(R),   LHM2(S),   LHM1(T),   &kp G,         &kp LMEH,    &kp RMEH,  &kp M,         RHM1(N),   RHM2(E),   RHM3(I),   RHM4(O),   &kp SQT,
         &globebslh, P_LB4_QWT, P_LB3_QWT, &kp C,     &kp D,     AS(V),         &kp HOME,    &kp PG_UP, &kp K,         &kp H,     &kp COMMA, P_RB3_QWT, P_RB4_QWT, &hmr GLOBE EQUAL,
                     &motg_sys, P_SF4_QWT, P_LF3_QWT, &bspcnav,  &lt L_SYM ESC, &kp END,     &kp PG_DN, &lt L_MED RET, &hlr L_NUM SPACE,     P_RF3_QWT, P_SF4_QWT, &motg_sys
