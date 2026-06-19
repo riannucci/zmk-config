@@ -16,5 +16,5 @@ if(CONFIG_ZMK_BEHAVIOR_ECAPS_WORD)
   # Because we now compile inside 'app', drivers/behavior.h is already on
   # app's include path — the explicit zephyr_library_include_directories()
   # workaround is no longer needed.
-  target_sources(app PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src/behavior_ecaps_word.c)
+  target_sources(app PRIVATE ${CMAKE_CURRENT_LIST_DIR}/modules/ecaps-word/src/behavior_ecaps_word.c)
 endif()
