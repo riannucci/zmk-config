@@ -57,7 +57,7 @@
 // I like to have couple more keys to not break the CAPS_WORD streak, like the
 // backspace key. Since I make too many mistakes while typing, I find extremely
 // annoying to stop the CAPS_WORD whenever I want to fix an error.
-&caps_word {
+&ecaps_word {
   continue-list = <UNDERSCORE MINUS BSPC>;
 };
 
@@ -315,7 +315,7 @@
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       tapping-term-ms = <200>;
-      bindings = <&kp GRAVE>, <&caps_word>;
+      bindings = <&kp GRAVE>, <&ecaps_word>;
     };
 
     // Tap: Single quote  ("'")
@@ -327,7 +327,7 @@
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       tapping-term-ms = <200>;
-      bindings = <&kp SQT>, <&caps_word>;
+      bindings = <&kp SQT>, <&ecaps_word>;
     };
 
     appswtnxt: application_switch_next {
@@ -438,7 +438,7 @@
             timeout-ms = <75>;
             key-positions = COMBO_KEY_CAPS_WORD;
             layers = <L_CMK>;
-            bindings = <&caps_word>;
+            bindings = <&ecaps_word>;
         };
     };
 };
