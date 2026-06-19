@@ -1,1 +1,0 @@
-adafruit-nrfutil==0.5.3.post16

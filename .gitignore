@@ -1,6 +1,0 @@
-.DS_Store
-.plans/
-.venv/
-.zephyr-sdk/
-.zmk-app/
-firmware/
