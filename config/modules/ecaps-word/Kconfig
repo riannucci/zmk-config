@@ -1,0 +1,5 @@
+config ZMK_BEHAVIOR_ECAPS_WORD
+    bool "Extended caps-word behavior (caps_word + shift-list)"
+    default y
+    depends on DT_HAS_ZMK_BEHAVIOR_ECAPS_WORD_ENABLED
+    depends on !ZMK_SPLIT || ZMK_SPLIT_ROLE_CENTRAL

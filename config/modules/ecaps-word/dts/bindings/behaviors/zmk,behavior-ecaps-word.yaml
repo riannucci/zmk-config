@@ -1,0 +1,19 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+#
+# Derived from zmk,behavior-caps-word.yaml. Adds `shift-list`.
+
+description: Extended caps word behavior (caps_word plus a shift-list)
+
+compatible: "zmk,behavior-ecaps-word"
+
+include: zero_param.yaml
+
+properties:
+  continue-list:
+    type: array
+    required: true
+  shift-list:
+    type: array
+  mods:
+    type: int
