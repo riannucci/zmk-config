@@ -54,16 +54,6 @@
 
 // Behavior configuration
 // -----------------------------------------------------------------------------
-// I like to have couple more keys to not break the CAPS_WORD streak, like the
-// backspace key. Since I make too many mistakes while typing, I find extremely
-// annoying to stop the CAPS_WORD whenever I want to fix an error.
-ecaps_word: ecaps_word {
-  compatible = "zmk,behavior-ecaps-word";
-  #binding-cells = <0>;
-  continue-list = <UNDERSCORE BACKSPACE DELETE>;
-  shift-list = <MINUS>;
-  display-name = "Ext Caps Word";
-};
 
   // // // // // // // // // // // // // // // // // // // // // // // // // // // //
   // About layer-keys layout                                                       //
@@ -416,6 +406,14 @@ ecaps_word: ecaps_word {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       bindings= <&kp LC(W) &kp J>;
+    };
+
+    ecaps_word: ecaps_word {
+      compatible = "zmk,behavior-ecaps-word";
+      #binding-cells = <0>;
+      continue-list = <UNDERSCORE BACKSPACE DELETE>;
+      shift-list = <MINUS>;
+      display-name = "Ext Caps Word";
     };
   };
 };
