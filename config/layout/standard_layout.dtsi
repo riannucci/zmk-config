@@ -413,7 +413,7 @@
       #binding-cells = <0>;
       continue-list = <UNDERSCORE BACKSPACE DELETE>;
       shift-list = <MINUS>;
-      unshift-list = <EXCL>;
+      unshift-list = <EXCL AT HASH DOLLAR PERCENT CARET AMPERSAND STAR LPAR RPAR>;
       display-name = "Ext Caps Word";
     };
   };
