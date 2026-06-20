@@ -155,8 +155,7 @@ ecaps_word_should_continue(const struct behavior_ecaps_word_config *config,
                            struct zmk_keycode_state_changed *ev) {
   if (is_mod(ev->usage_page, ev->keycode)   ||
       ecaps_word_should_shift(config, ev)   ||
-      ecaps_word_should_unshift(config, ev) ||
-  ) {
+      ecaps_word_should_unshift(config, ev)) {
     return true;
   }
   if (ev->usage_page == HID_USAGE_KEY && ecaps_word_is_numeric(ev->keycode)) {
