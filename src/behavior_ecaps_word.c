@@ -188,7 +188,7 @@ static int ecaps_word_keycode_state_changed_listener(const zmk_event_t *eh) {
     } else if (ecaps_word_should_unshift(config, ev)) {
       LOG_DBG("Enhancing usage 0x%02X with unshift modifiers: 0x%02X", ev->keycode,
               config->mods);
-      ev->implicit_modifiers &= ^config->mods;
+      ev->implicit_modifiers &= ~config->mods;
     }
 
     if (!ecaps_word_should_continue(config, ev)) {
