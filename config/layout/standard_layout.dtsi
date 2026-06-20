@@ -412,7 +412,7 @@
       compatible = "zmk,behavior-ecaps-word";
       #binding-cells = <0>;
       continue-list = <UNDERSCORE BACKSPACE DELETE>;
-      shift-list = <MINUS>;
+      shift-list = <MINUS EXCL>;
       display-name = "Ext Caps Word";
     };
   };
