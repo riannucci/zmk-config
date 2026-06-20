@@ -287,43 +287,6 @@
       keep-mods = <(MOD_LGUI|MOD_RGUI)>;
     };
 
-    // Tap: Left square bracket ('[')
-    // Shift-tap: Left curly brace ('{')
-    // Double-tap: -
-    // Hold: -
-    // Morph: with Cmd => Command + grave ('⌘`')
-    lbktgrave: left_bracket_or_cmd_grave {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&kp LBKT>, <&kp GRAVE>;
-      mods = <(MOD_LGUI|MOD_RGUI)>;
-      keep-mods = <(MOD_LGUI|MOD_RGUI)>;
-    };
-
-    // Tap: Grave ('`')
-    // Shift-tap: Tilde ('~')
-    // Double-tap: Turn on CAPS_WORD
-    // Hold: -
-    // Morph: -
-    gravecaps: grave_or_capsword {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp GRAVE>, <&ecaps_word>;
-    };
-
-    // Tap: Single quote  ("'")
-    // Shift-tap: Double quote ('"')
-    // Double-tap: Turn on CAPS_WORD
-    // Hold: -
-    // Morph: -
-    sqtcaps: singlequote_or_capsword {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp SQT>, <&ecaps_word>;
-    };
-
     appswtnxt: application_switch_next {
       compatible = "zmk,behavior-tri-state";
       #binding-cells = <0>;
@@ -472,7 +435,7 @@
     COLEMAK {
       display-name = "COLEMAK";
       bindings = <LAYER_ADAPTER(
-        &lbktgrave, &kp_rN1,   &kp_rN2,   &kp_rN3,   &kp_rN4,   &kp_rN5,                               &kp_rN6,       &kp_rN7,   &kp_rN8,   &kp_rN9,   &kp_rN0,   &kp RBKT,
+        &kp LBKT,   &kp_rN1,   &kp_rN2,   &kp_rN3,   &kp_rN4,   &kp_rN5,                               &kp_rN6,       &kp_rN7,   &kp_rN8,   &kp_rN9,   &kp_rN0,   &kp RBKT,
         &kp TAB,    &kp Q,     &kp W,     &kp F,     &kp P,     &kp B,         &kp LHYP,    &kp RHYP,  &kp J,         &kp L,     &kp U,     &kp Y,     &kp_rSEMI, &kp MINUS,
         &kp GRAVE,  LHM4(A),   LHM3(R),   LHM2(S),   LHM1(T),   &kp G,         &kp LMEH,    &kp RMEH,  &kp M,         RHM1(N),   RHM2(E),   RHM3(I),   RHM4(O),   &kp SQT,
         &globebslh, P_LB4_QWT, P_LB3_QWT, &kp C,     &kp D,     AS(V),         &kp HOME,    &kp PG_UP, &kp K,         &kp H,     &kp COMMA, P_RB3_QWT, P_RB4_QWT, &hmr GLOBE EQUAL,
