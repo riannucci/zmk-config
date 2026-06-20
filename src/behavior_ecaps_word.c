@@ -220,6 +220,8 @@ static int ecaps_word_keycode_state_changed_listener(const zmk_event_t *eh) {
       PROP_KEY_LIST(n, continue_list);                                         \
   static const struct ecaps_word_key_list ecaps_word_shift_##n =               \
       PROP_KEY_LIST(n, shift_list);                                            \
+  static const struct ecaps_word_key_list ecaps_word_unshift_##n =               \
+      PROP_KEY_LIST(n, unshift_list);                                            \
   static struct behavior_ecaps_word_data behavior_ecaps_word_data_##n = {      \
       .active = false};                                                        \
   static const struct behavior_ecaps_word_config                               \
@@ -227,6 +229,7 @@ static int ecaps_word_keycode_state_changed_listener(const zmk_event_t *eh) {
           .mods = DT_INST_PROP_OR(n, mods, MOD_LSFT),                          \
           .continue_list = &ecaps_word_continue_##n,                           \
           .shift_list = &ecaps_word_shift_##n,                                 \
+          .unshift_list = &ecaps_word_unshift_##n,                             \
   };                                                                           \
   BEHAVIOR_DT_INST_DEFINE(n, NULL, NULL, &behavior_ecaps_word_data_##n,        \
                           &behavior_ecaps_word_config_##n, POST_KERNEL,        \
