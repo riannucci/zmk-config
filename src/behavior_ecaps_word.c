@@ -8,6 +8,10 @@
  * MINUS -> UNDERSCORE) and implicitly continue the word. Inspired by upstream
  * ZMK PR #1742. When that lands in a release, delete this module and switch the
  * keymap to the built-in &prog_word / &caps_word { shift-list = <MINUS>; }.
+ *
+ * Also adds an unshift-list, which is a set of characters to remove the mods 
+ * from. This is useful if you have inverted number/symbol keys (e.g. ! instead
+ * of 1) and you want to be able to type typical enumeration type symbols.
  */
 
 #define DT_DRV_COMPAT zmk_behavior_ecaps_word
@@ -44,6 +48,7 @@ struct ecaps_word_key_list {
 struct behavior_ecaps_word_config {
   const struct ecaps_word_key_list *continue_list;
   const struct ecaps_word_key_list *shift_list;
+  const struct ecaps_word_key_list *unshift_list;
   zmk_mod_flags_t mods;
 };
 
@@ -134,13 +139,24 @@ ecaps_word_should_shift(const struct behavior_ecaps_word_config *config,
                                   ev->keycode, ev->implicit_modifiers);
 }
 
+
+// Apply unshift anything in unshift-list.
+static bool
+ecaps_word_should_unshift(const struct behavior_ecaps_word_config *config,
+                          struct zmk_keycode_state_changed *ev) {
+  return ecaps_word_list_contains(config->unshift_list, ev->usage_page,
+                                  ev->keycode, ev->implicit_modifiers);
+}
+
 // Continue the word for alpha, numeric, modifiers, shift-list (implies
 // continue), and continue-list.
 static bool
 ecaps_word_should_continue(const struct behavior_ecaps_word_config *config,
                            struct zmk_keycode_state_changed *ev) {
-  if (is_mod(ev->usage_page, ev->keycode) ||
-      ecaps_word_should_shift(config, ev)) {
+  if (is_mod(ev->usage_page, ev->keycode)   ||
+      ecaps_word_should_shift(config, ev)   ||
+      ecaps_word_should_unshift(config, ev) ||
+  ) {
     return true;
   }
   if (ev->usage_page == HID_USAGE_KEY && ecaps_word_is_numeric(ev->keycode)) {
@@ -170,6 +186,10 @@ static int ecaps_word_keycode_state_changed_listener(const zmk_event_t *eh) {
       LOG_DBG("Enhancing usage 0x%02X with modifiers: 0x%02X", ev->keycode,
               config->mods);
       ev->implicit_modifiers |= config->mods;
+    } else if (ecaps_word_should_unshift(config, ev)) {
+      LOG_DBG("Enhancing usage 0x%02X with unshift modifiers: 0x%02X", ev->keycode,
+              config->mods);
+      ev->implicit_modifiers &= ^config->mods;
     }
 
     if (!ecaps_word_should_continue(config, ev)) {

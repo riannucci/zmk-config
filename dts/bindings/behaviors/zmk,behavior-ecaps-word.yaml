@@ -3,7 +3,7 @@
 #
 # Derived from zmk,behavior-caps-word.yaml. Adds `shift-list`.
 
-description: Extended caps word behavior (caps_word plus a shift-list)
+description: Extended caps word behavior (caps_word plus a shift-list and unshift-list)
 
 compatible: "zmk,behavior-ecaps-word"
 
@@ -14,6 +14,8 @@ properties:
     type: array
     required: true
   shift-list:
+    type: array
+  unshift-list:
     type: array
   mods:
     type: int
