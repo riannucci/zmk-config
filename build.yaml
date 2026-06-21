@@ -21,14 +21,14 @@
 include:
   # Lily58 Firmware
   - keyboard: Lily58
-    board: nice_nano_v2
+    board: nice_nano
     shield: lily58_left nice_view_adapter nice_view
     artifact-name: zmk-lily58-left
   - keyboard: Lily58
-    board: nice_nano_v2
+    board: nice_nano
     shield: lily58_right nice_view_adapter nice_view
     artifact-name: zmk-lily58-right
   - keyboard: Lily58
-    board: nice_nano_v2
+    board: nice_nano
     shield: settings_reset
     artifact-name: zmk-lily58-settings-reset
